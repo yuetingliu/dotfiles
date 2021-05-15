@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'dense-analysis/ale'                 " ALE lint, autocomplete
     Plug 'Yggdroot/indentLine'                " Vertical guide lines
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " auto-complete
+    Plug 'deoplete-plugins/deoplete-jedi'     " Deoplete source for python
     Plug 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
 
     "-------------------=== Appearance ===-------------------------------
@@ -83,9 +84,9 @@ let g:snippets_dir='~/.config/nvim/vim-snippets/snippets'
 "" Deolete settings
 "=====================================================
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+"call deoplete#custom#option('sources', {
+"\ '_': ['ale'],
+"\})
 " automatically close preview window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -99,16 +100,19 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
-  \'python': ['pycodestyle', 'pydocstyle', 'pyflake', 'pylint'],
+  \'python': ['pycodestyle', 'pydocstyle', 'pyflakes', 'pylint', 'pyls'],
   \}
-" map go to next/previous ale error line
-nmap <silent> <leader>an :ALENext<cr>
-nmap <silent> <leader>aN :ALEPrevious<cr>
 " fix files when you save them.
 let g:ale_fix_on_save = 0
 let g:ale_fixers = {
-   \'*': ['remove_trailing_lines', 'trim_whitespace']
+   \'*': ['remove_trailing_lines', 'trim_whitespace'],
+   \'python': ['black', 'isort'],
    \}
+" map go to definition
+nmap <silent> gd :ALEGoToDefinition<cr>
+" map go to next/previous ale error line
+nmap <silent> <leader>an :ALENext<cr>
+nmap <silent> <leader>aN :ALEPrevious<cr>
 
 "=====================================================
 "" AirLine settings
@@ -123,8 +127,8 @@ let g:airline_powerline_fonts=1
 "=====================================================
 let g:tagbar_autofocus=0
 let g:tagbar_width=42
-autocmd BufEnter *.py :call tagbar#autoopen(0)
-autocmd BufWinLeave *.py :TagbarClose
+let g:tagbar_sort=0
+nmap <leader>t :TagbarToggle<cr>
 
 "=====================================================
 "" NERDTree settings
@@ -132,6 +136,7 @@ autocmd BufWinLeave *.py :TagbarClose
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
 let NERDTreeWinSize=40
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+nmap <leader>n :NERDTreeToggle<cr>
 
 "=====================================================
 " highlight 'long' lines (>= 80 symbols) in python files
@@ -143,3 +148,18 @@ augroup vimrc_autocmds
     autocmd FileType python,rst,c,cpp set nowrap
     autocmd FileType python,rst,c,cpp set colorcolumn=80
 augroup END
+
+"=====================================================
+" use vim virtualenv
+"=====================================================
+"let g:python_host_prog = '~/.venvs/vim/bin/python'
+let g:python3_host_prog = expand('~/.venvs/vim/bin/python')
+let $PATH .= ':/home/yueting/.venvs/vim/bin'
+
+"=====================================================
+" set background transparency
+" change the line order to toggle between transparent and opaque
+"=====================================================
+"hi Normal guibg=#111111 ctermbg=black
+hi NonText ctermbg=None
+hi Normal guibg=None ctermbg=None
