@@ -1,0 +1,123 @@
+#+TITLE: Elfeed sources
+* Blogs                                                              :elfeed:
+** Technology :tech:
+*** https://www.technologyreview.com/feed :mit:news:
+MIT technology review
+*** https://techcrunch.com/feed :techcrunch:news:
+Tech crunch news site
+*** https://www.wired.com/feed :wired:news:
+Wired
+*** https://syncedreview.com/feed :synced:
+*** https://www.reddit.com/r/singularity/.rss?format=xml :reddit:
+Reddit singularity
+*** https://news.ycombinator.com/rss :hackernews:
+Hacker news
+*** Linux :linux:
+**** entry-title \(linux\|linus\|arch\)
+**** https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg :youtube:distrotube:
+DistroTube, dt channel
+**** Emacs :emacs:
+***** http://www.terminally-incoherent.com/blog/feed/
+***** http://nullprogram.com/feed/
+author of elfeed
+***** entry-title: \(emacs\|org-mode\)
+***** http://planet.emacsen.org/atom.xml
+*** CS :cs:
+**** https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA :youtube:
+Computerphile
+*** AI :ai:
+**** entry-title \(ai\|machine learning\|deep learning\|artificial intelligence\)
+**** https://www.reddit.com/r/MachineLearning/.rss :reddit:
+Reddit Machine Learning
+**** https://distill.pub/rss.xml
+distill pub has famous figures
+**** http://news.mit.edu/rss/topic/artificial-intelligence2 :institute:mit:
+MIT AI blog
+**** https://openai.com/blog/rss :institute:openai:
+OpenAI blog
+**** https://www.fast.ai/atom.xml :institute:fastai:
+Fast.ai blog
+**** http://feeds.feedburner.com/blogspot/gJZg :institute:google:
+Google AI blog
+**** https://medium.com/feed/ai2-blog :institute:ai2:
+Allen Institute for AI Ai2
+**** https://deepmind.com/blog/feed/basic/ :institute:deepmind:
+Deep mind blog
+**** https://www.reddit.com/r/reinforcementlearning/.rss?format=xml :reddit:RL:
+Reddit Reinforcement Learning
+**** https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml :magazine:
+Science daily about AI
+**** https://www.artificial-intelligence.blog/news?format=rss
+AI blog
+**** youtube :youtube:
+***** entry-title \(youtube\)
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ
+Sentdex youtube channel, dessect code
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw :math:3b1b:
+3blue1brown fansinating visualization
+***** https://lexfridman.com/feed :influencer:
+Lex Fridman home page
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA
+Lex Fridman youtube
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw
+Henry AI Labs, with weekly summary in ai
+**** paper :paper:
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg :youtube:
+two minutes paper
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew :youtube:
+Yannic Kilcher about papers
+***** https://deepmind.com/research/feed/basic/ :institute:deepmind:
+Deep mind research papers
+**** Self-driving car :self_driving:
+***** https://www.theguardian.com/technology/self-driving-cars/rss :magazine:
+Guardian manazine self driving car
+***** https://medium.com/feed/self-driving-cars
+Medium self driving topic
+***** https://blog.waymo.com/rss.xml :institute:
+Waymo official blog
+***** https://news.mit.edu/topic/mitrobotics-rss.xml :institute:
+MIT robotics
+***** https://news.mit.edu/topic/mitautonomous-vehicles-rss.xml :institute:
+MIT self driving car
+***** https://www.theverge.com/transportation/rss/index.xml :magazine:
+The verge self driving car coverage
+***** https://www.reddit.com/r/SelfDrivingCars/.rss :reddit:
+Reddit self-driving car subreddit
+***** https://medium.com/feed/cruise :institute:
+Cruise blog
+***** https://www.autoblog.com/rss.xml
+** Knowledge :knowledge:
+*** https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnInmOkrWN4gof9KlhNmQ :youtube:laogao:
+Laogao broad topics
+*** https://fs.blog/feed :influencer:fs:
+farnamstreet blog
+*** https://ryanholiday.net/feed :reading:books:influencer:
+*** http://feeds.hbr.org/harvardbusiness :magazine:
+Harvard business review
+*** https://seths.blog/feed :influencer:sethgodin:
+Seth Godin blog
+*** https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A :youtube:coldfusion:
+ColdFusion youtube channel
+** Finance :finance:
+*** entry-title \(finance\|financial\|investing\|investment\)
+*** https://blogs.cfainstitute.org/investor/feed/
+*** https://www.blog.invesco.us.com/feed/
+*** https://vanguardblog.com/feed/ :institute:
+Varguard blog
+*** https://feeds.a.dj.com/rss/RSSMarketsMain.xml :institute:news:
+Wallstreet journal
+*** https://www.blackrockbkcc.com/rss/news-releases.xml?items=15 :institute:
+Black Rock
+*** https://www.forbes.com/money/feed/ :news:forbes:money:
+Forbes money rss
+** Insights
+** News :news:
+*** https://www.economist.com/sections/economics/rss.xml :economist:
+Economist economy
+*** http://feeds.bbci.co.uk/news/world/rss.xml :bbc:
+BBC world news
+** Fun :fun:
+*** https://www.youtube.com/feeds/videos.xml?channel_id=UCMtFAi84ehTSYSE9XoHefig :youtube:lateshow:
+Late show with Stephen Colbert
+*** https://www.youtube.com/feeds/videos.xml?channel_id=UCwWhs_6x42TyRM4Wstoq8HA :youtube:dailyshow:
+Daily show with Trever Noah

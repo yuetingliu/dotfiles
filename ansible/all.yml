@@ -1,0 +1,11 @@
+- name: deploy essential packges
+  hosts: localhost
+  gather_facts: yes
+  become: no
+  roles:
+    - alacritty
+    - zsh
+    - tmux
+    - neovim
+
+

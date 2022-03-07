@@ -1,0 +1,10 @@
+- name: Install tmux
+  package:
+    name:
+      - tmux
+      - powerline
+    state: installed
+  become: yes
+  tags:
+    - dev
+    - tmux

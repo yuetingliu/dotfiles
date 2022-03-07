@@ -1,0 +1,11 @@
+- name: Install neovim package
+  package:
+    name:
+      - neovim
+      - ctags
+      - xsel
+    state: installed
+  become: yes
+  tags:
+    - neovim
+    - dev

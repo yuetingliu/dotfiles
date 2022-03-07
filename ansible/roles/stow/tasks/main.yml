@@ -1,0 +1,11 @@
+- name : Install stow
+  package:
+    name: stow
+    state: installed
+  become: yes
+  tags:
+    - dev
+    - stow
+
+- name: Symlink dotfiles using stow
+  shell: stow --target='$HOME/dotfiles' --dir='$HOME'

@@ -1,0 +1,24 @@
+- name: Install input method to type Chinese
+  vars:
+    conf_fn: chinese_im.conf
+    conf_path: "{{ ansible_env.HOME }}/.xprofile"
+  package:
+    name:
+      - source-han-sans
+      - fcitx-im
+      - fcitx-googlepinyin
+      - fcitx-configtool
+    state: installed
+  become: yes
+  tags:
+    - dev
+    - im
+
+- name: Install fonts
+  shell: fc-cache -fv
+  become: yes
+
+- name: Add env var settings
+  lineinfile
+    path: "{{ conf_path }}"
+    line: "{{ conf_fn }}"

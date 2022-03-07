@@ -12,3 +12,6 @@ export SAVEHIST=10000                  # Maximum events in history file
 # set editor, use vim as default
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# add local/bin to PATH
+export PATH="$PATH:/home/yueting/.local/bin:/home/yueting/.emacs.d/bin"

@@ -1,0 +1,17 @@
+- name: Install zsh
+  package:
+    name:
+      - zsh
+      - zsh-completions
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+      - zsh-theme-powerlevel10k
+    state: installed
+  become: yes
+  tags:
+    - zsh
+    - dev
+
+- name: Change default shell to zsh
+  shell: chsh -s /usr/bin/zsh $USER
+  become: yes

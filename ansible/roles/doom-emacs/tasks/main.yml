@@ -1,0 +1,24 @@
+- name: Install doom-emacs
+  vars:
+    doom_repo: 'https://github.com/hlissner/doom-emacs'
+    emacs_conf: "{{ ansible_env.HOME }}/.emacs.d"
+    doom_bin: "{{ emacs_conf }}/bin/doom"
+  package:
+    name: emacs
+    state: installed
+  become: no
+  tags:
+    - doom-emacs
+
+- name : Clone doom-emacs repo
+  git:
+    repo: "{{ doom_repo }}"
+    dest: "{{ emacs_conf }}"
+
+- name: Configure doom-emacs
+  shell: |
+    {{ doom_bin }} install
+    {{ doom_bin }} sync
+    {{ doom_bin }} doctor
+
+- debug: msg={{SEQOUT.stdout_lines}}

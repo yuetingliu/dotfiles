@@ -1,0 +1,9 @@
+- name: Install alacritty
+  package:
+    name:
+      - alacritty
+    state: installed
+  become: yes
+  tags:
+    - dev
+    - alacritty
