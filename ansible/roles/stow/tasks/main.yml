@@ -3,9 +3,10 @@
     name: stow
     state: installed
   become: yes
-  tags:
-    - dev
-    - stow
 
 - name: Symlink dotfiles using stow
-  shell: stow --target='$HOME' --dir='$HOME/dotfiles'
+  vars:
+    stow_target: "{{ ansible_env.HOME }}"
+    stow_dir: "{{ stow_target }}/dotfiles"
+  shell: stow . --target "{{ stow_target }}" --dir "{{ stow_dir }}"
+  changed_when: false

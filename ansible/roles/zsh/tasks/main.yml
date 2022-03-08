@@ -4,14 +4,19 @@
       - zsh
       - zsh-completions
       - zsh-syntax-highlighting
-      - zsh-autosuggestions
-      - zsh-theme-powerlevel10k
     state: installed
   become: yes
-  tags:
-    - zsh
-    - dev
 
 - name: Change default shell to zsh
-  shell: chsh -s /usr/bin/zsh $USER
   become: yes
+  shell: chsh -s /bin/zsh "{{ ansible_env.USER }}"
+  changed_when: false
+
+- name: Install powerlevel10 theme
+  vars:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: $HOME/powerlevel10k
+  git:
+    repo: "{{ repo }}"
+    dest: "{{ dest }}"
+    depth: 1

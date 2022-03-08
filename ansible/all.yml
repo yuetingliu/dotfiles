@@ -1,11 +1,22 @@
 - name: deploy essential packges
   hosts: localhost
   gather_facts: yes
-  become: no
   roles:
-    - alacritty
-    - zsh
-    - tmux
-    - neovim
-
-
+    - role: alacritty
+      tags:
+        - alacritty
+        - dev
+    - role: zsh
+      tags:
+        - zsh
+        - dev
+    - role: tmux
+      tags:
+        - dev
+        - tmux
+    - role: neovim
+      tags:
+        - dev
+        - neovim
+    - role: stow
+      tags: stow
