@@ -20,3 +20,5 @@
         - neovim
     - role: stow
       tags: stow
+    - role: doom-emacs
+      tags: doom-emacs

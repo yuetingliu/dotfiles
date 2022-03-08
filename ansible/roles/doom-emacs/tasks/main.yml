@@ -1,24 +1,32 @@
-- name: Install doom-emacs
+- name: Install emacs and relevant packages ripgrep and fd
+  package:
+    name:
+      - emacs
+      - ripgrep
+      - fd
+    state: installed
+  become: yes
+  tags: emacs
+
+- name : Clone doom-emacs repo
   vars:
     doom_repo: 'https://github.com/hlissner/doom-emacs'
     emacs_conf: "{{ ansible_env.HOME }}/.emacs.d"
-    doom_bin: "{{ emacs_conf }}/bin/doom"
-  package:
-    name: emacs
-    state: installed
-  become: no
-  tags:
-    - doom-emacs
-
-- name : Clone doom-emacs repo
   git:
     repo: "{{ doom_repo }}"
     dest: "{{ emacs_conf }}"
+    depth: 1
+
+- name: Link doom configs
+  shell: stow doom --target "{{ ansible_env.HOME }}" --dir "{{ ansible_env.HOME }}/dotfiles"
+  changed_when: false
 
 - name: Configure doom-emacs
+  vars:
+    emacs_conf: "{{ ansible_env.HOME }}/.emacs.d"
+    doom_bin: "{{ emacs_conf }}/bin/doom"
   shell: |
-    {{ doom_bin }} install
+    {{ doom_bin }} install -y
     {{ doom_bin }} sync
     {{ doom_bin }} doctor
-
-- debug: msg={{SEQOUT.stdout_lines}}
+  changed_when: false
