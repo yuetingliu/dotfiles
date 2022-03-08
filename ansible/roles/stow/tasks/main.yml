@@ -8,4 +8,4 @@
     - stow
 
 - name: Symlink dotfiles using stow
-  shell: stow --target='$HOME/dotfiles' --dir='$HOME'
+  shell: stow --target='$HOME' --dir='$HOME/dotfiles'
