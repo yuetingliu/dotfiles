@@ -15,7 +15,16 @@
 - name: Install powerlevel10 theme
   vars:
     repo: https://github.com/romkatv/powerlevel10k.git
-    dest: $HOME/powerlevel10k
+    dest: "{{ ansible_env.HOME }}/.local/share/zsh/plugins/zsh-theme-powerlevel10k"
+  git:
+    repo: "{{ repo }}"
+    dest: "{{ dest }}"
+    depth: 1
+
+- name: Install zsh-autosuggestions
+  vars:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "{{ ansible_env.HOME }}/.local/share/zsh/plugins/zsh-autosuggestions"
   git:
     repo: "{{ repo }}"
     dest: "{{ dest }}"

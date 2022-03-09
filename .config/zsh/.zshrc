@@ -19,13 +19,15 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
+# Zsh plugins
+# -----------
 # Theme
-#source /usr/share/powerline/bindings/zsh/powerline.zsh
-#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.local/share/zsh/plugins/zsh-theme-powerlevel10k/config/p10k-rainbow.zsh
+source $HOME/.local/share/zsh/plugins/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Auto suggestions
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ---------------------------------------------
 
 # Syntax highlighting
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -37,5 +39,5 @@ fpath=(/usr/share/zsh/site-functions/ $fpath)
 # run keychain
 eval $(keychain --eval --quiet id_rsa)
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.config/zsh/.p10k.zsh.
+[[ ! -f ~/dotfiles/.config/zsh/.p10k.zsh ]] || source ~/dotfiles/.config/zsh/.p10k.zsh
