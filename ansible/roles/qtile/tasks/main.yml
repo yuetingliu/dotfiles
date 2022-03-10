@@ -2,8 +2,25 @@
   package:
     name:
       - qtile
+      - xrandr
       - rofi
       - lightdm
+      - light-locker
+      - picom
+    state: installed
+  become: yes
+
+- name: Install relevant packages
+  package:
+    name:
+      - playerctl
+      - blueman
+      - qalculate-gtk
+      - nomacs
+      - scrot
+      - psutil
+      - nitrogen
+      - numlockx
     state: installed
   become: yes
 

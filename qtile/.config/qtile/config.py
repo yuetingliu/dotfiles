@@ -356,12 +356,12 @@ def init_widgets_list(fontsize=None):
         #         padding=0,
         #         fontsize=fontsize
         #         ),
-        widget.Battery(
-                 padding=2,
-                 foreground=colors[2],
-                 background=colors[0],
-                 fontsize=fontsize
-                 ),
+#        widget.Battery(
+#                 padding=2,
+#                 foreground=colors[2],
+#                 background=colors[0],
+#                 fontsize=fontsize
+#                 ),
         widget.Sep(
                  linewidth=1,
                  padding=10,
@@ -397,7 +397,7 @@ def init_widgets_list(fontsize=None):
                  ),
         widget.CheckUpdates(
                  update_interval=60,
-                 distro="Arch_checkupdates",
+                 distro="Gentoo",
                  display_format="{updates} Updates",
                  foreground=colors[2],
                  mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
@@ -473,6 +473,7 @@ def init_widgets_list(fontsize=None):
                 padding=0
                 ),
         widget.Volume(
+                 volume_app=pactl,
                  foreground=colors[2],
                  background=colors[0],
                  padding=5
@@ -605,10 +606,10 @@ floating_layout = layout.Floating(float_rules=[
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
-#@hook.subscribe.startup_once
-#def start_once():
-#    home = os.path.expanduser('~')
-#    subprocess.call([home + '/.config/autostart.sh'])
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/autostart.sh'])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
