@@ -21,6 +21,7 @@
       - psutil
       - nitrogen
       - numlockx
+      - redshift
     state: installed
   become: yes
 

@@ -362,12 +362,12 @@ def init_widgets_list(fontsize=None):
 #                 background=colors[0],
 #                 fontsize=fontsize
 #                 ),
-        widget.Sep(
-                 linewidth=1,
-                 padding=10,
-                 foreground=colors[2],
-                 background=colors[0]
-                 ),
+#        widget.Sep(
+#                 linewidth=1,
+#                 padding=10,
+#                 foreground=colors[2],
+#                 background=colors[0]
+#                 ),
         widget.ThermalSensor(
                  foreground=colors[2],
                  background=colors[0],
@@ -473,7 +473,6 @@ def init_widgets_list(fontsize=None):
                 padding=0
                 ),
         widget.Volume(
-                 volume_app=pactl,
                  foreground=colors[2],
                  background=colors[0],
                  padding=5
