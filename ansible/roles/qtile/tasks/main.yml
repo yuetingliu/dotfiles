@@ -1,0 +1,11 @@
+- name: Install qtile and LightDM
+  package:
+    name:
+      - qtile
+      - lightdm
+    state: installed
+  become: yes
+
+- name: Link qtile config
+  shell: stow qtile --target "{{ ansible_env.HOME }}" --dir "{{ ansible_env.HOME }}/dotfiles"
+  changed_when: false

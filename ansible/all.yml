@@ -22,3 +22,5 @@
       tags: stow
     - role: doom-emacs
       tags: doom-emacs
+    - role: qtile
+      tags: qtile
