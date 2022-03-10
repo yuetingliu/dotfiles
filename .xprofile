@@ -5,6 +5,5 @@ export XMODIFIERS=@im=fcitx
 # start numlock
 numlockx &
 
-# bluetooth applet
-blueman-applet &
-
+# start light-lock with X session
+light-locker &
