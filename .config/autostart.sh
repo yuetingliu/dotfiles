@@ -16,11 +16,4 @@ picom -b
 nitrogen --restore &
 
 # autostart applications for system level and user level
-XDG_DIR=/etc/xdg/autostart/
-cd $XDG_DIR
-dex *.desktop &
-DIR=$HOME/.config/autostart/
-if [[ -d $DIR ]]; then
-    cd $DIR
-    dex *.desktop &
-fi
+dex -a -s /etc/xdg/autostart/:$HOME/.config/autostart/

@@ -7,6 +7,7 @@
       - lightdm
       - light-locker
       - picom
+      - dex
     state: installed
   become: yes
 
