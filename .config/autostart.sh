@@ -20,5 +20,7 @@ XDG_DIR=/etc/xdg/autostart/
 cd $XDG_DIR
 dex *.desktop &
 DIR=$HOME/.config/autostart/
-cd $DIR
-dex *.desktop &
+if [[ -d $DIR ]]; then
+    cd $DIR
+    dex *.desktop &
+fi
