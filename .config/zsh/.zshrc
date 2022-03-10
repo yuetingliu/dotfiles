@@ -39,5 +39,8 @@ fpath=(/usr/share/zsh/site-functions/ $fpath)
 # run keychain
 eval $(keychain --eval --quiet id_rsa)
 
+# add .local/bin and .emacs.d/bin to PATH
+export PATH="$PATH:/home/yueting/.local/bin:/home/yueting/.emacs.d/bin"
+
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.config/zsh/.p10k.zsh.
 [[ ! -f ~/dotfiles/.config/zsh/.p10k.zsh ]] || source ~/dotfiles/.config/zsh/.p10k.zsh
