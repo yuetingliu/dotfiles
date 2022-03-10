@@ -2,6 +2,7 @@
   package:
     name:
       - qtile
+      - rofi
       - lightdm
     state: installed
   become: yes
