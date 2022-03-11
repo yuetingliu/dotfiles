@@ -1,0 +1,9 @@
+- name: Install base packages
+  package:
+    name: 
+      - hardinfo
+    state: installed
+  become: yes
+  tags:
+    - base
+

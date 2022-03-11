@@ -15,6 +15,7 @@
   package:
     name:
       - playerctl
+      - alsa-utils
       - blueman
       - qalculate-gtk
       - nomacs
