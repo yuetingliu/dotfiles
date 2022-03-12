@@ -4,6 +4,3 @@ export XMODIFIERS=@im=fcitx
 
 # start numlock
 numlockx &
-
-# start light-lock with X session
-light-locker &
