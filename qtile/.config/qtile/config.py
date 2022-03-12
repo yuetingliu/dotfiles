@@ -82,11 +82,6 @@ keys = [
     Key([mod, "shift"], "space", lazy.layout.toggle_split(),
         desc='Toggle between split and unsplit sides of stack'),
 
-    # lock screen with light-locker
-    Key([mod], 'l',
-        lazy.spawn("light-locker-command -l"),
-        desc="lock screen with light-locker"),
-
     # volume control with PulseAudio
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
