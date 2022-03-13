@@ -16,4 +16,6 @@ picom -b
 nitrogen --restore &
 
 # autostart applications for system level and user level
-dex -a -s /etc/xdg/autostart/:$HOME/.config/autostart/
+dex -a -s $HOME/.config/autostart/
+
+#[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
