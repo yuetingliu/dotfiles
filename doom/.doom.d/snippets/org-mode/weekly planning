@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: weekly planning
+# uuid: s_wp
+# key: s_wp
+# condition: t
+# --
+* Week $1
+** Objectives & Key results [0/3]
+:PROPERTIES:
+:COOKIE_DATA: todo recursive
+:END:
+*** capra [0/0]
+*** backend dev [0/0]
+*** miscellaneous [0/0]
+** Daily planning
+*** Mon
+**** planning [0/0]
+:PROPERTIES:
+:COOKIE_DATA: todo recursive
+:END:
+***** TODO
+**** main results
+**** next steps
+**** learning
+**** daily highlight
+**** daily summary

@@ -8,17 +8,45 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! )
+
+;; Elfeed for RSS
 ;; disable elfeed goodies
 (package! elfeed-goodies :disable t)
-(package! org-pomodoro)
+;; add elfeed-web
+(package! elfeed-web)
+;; use elfeed-tube
+(package! elfeed-tube)
+;; install mpv for elfeed-tube
+(package! elfeed-tube-mpv)
 
+;; use org-super-agenda for a better agenda view
+(package! org-super-agenda)
+;;(package! org-pomodoro)
 
+;; fill column to indicate line width
+(package! fill-column-indicator)
+
+;; use keychain-environment to handle ssh-agent
+(package! keychain-environment
+  :recipe (:host github :repo "tarsius/keychain-environment"))
+
+;; add dap mode for debugging
+(package! dap-mode)
+
+;; use with-venv
+(package! with-venv
+  :recipe (:host github :repo "10sr/with-venv-el"))
+
+;; use tabnine as company backend for auto-completion
+(package! company-tabnine)
+
+;; Python docstring generation using numpydoc
+(package! numpydoc)
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
 ;(package! another-package
 ;  :recipe (:host github :repo "username/repo"))
-
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
 ;; `:files' in the `:recipe':
@@ -52,3 +80,6 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+;;pocket-reader
+(package! pocket-reader)

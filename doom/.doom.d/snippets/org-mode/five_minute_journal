@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: five_minute_journal
+# uuid: fmj
+# key: fmj
+# condition: t
+# --
+Quote to ponder:
+- "${1:quote}"
+Three things I am grateful for:
+1. I am so grateful that $2
+2. I am so grateful that $3
+3. I am happy that $4
+
+What will make today great?
+- $5
+
+Daily affirmation:
+1. $6
+
+Three amazing things that happened today
+1. $7
+2. $8
+3. $9
+What could have made today better?
+- $10

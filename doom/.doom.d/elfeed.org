@@ -1,15 +1,13 @@
 #+TITLE: Elfeed sources
-* Blogs                                                              :elfeed:
+* Feeds :elfeed:
 ** Technology :tech:
 *** https://www.technologyreview.com/feed :mit:news:
 MIT technology review
 *** https://techcrunch.com/feed :techcrunch:news:
 Tech crunch news site
-*** https://www.wired.com/feed :wired:news:
-Wired
+*** https://www.theverge.com/rss/index.xml :verge:news:
+The verge
 *** https://syncedreview.com/feed :synced:
-*** https://www.reddit.com/r/singularity/.rss?format=xml :reddit:
-Reddit singularity
 *** https://news.ycombinator.com/rss :hackernews:
 Hacker news
 *** Linux :linux:
@@ -37,11 +35,11 @@ MIT AI blog
 OpenAI blog
 **** https://www.fast.ai/atom.xml :institute:fastai:
 Fast.ai blog
-**** http://feeds.feedburner.com/blogspot/gJZg :institute:google:
+**** http://feeds.feedburner.com/blogspot/gJZg :institute:google:blog:
 Google AI blog
 **** https://medium.com/feed/ai2-blog :institute:ai2:
 Allen Institute for AI Ai2
-**** https://deepmind.com/blog/feed/basic/ :institute:deepmind:
+**** https://deepmind.com/blog/feed/basic/ :institute:deepmind:google:
 Deep mind blog
 **** https://www.reddit.com/r/reinforcementlearning/.rss?format=xml :reddit:RL:
 Reddit Reinforcement Learning
@@ -57,10 +55,14 @@ Sentdex youtube channel, dessect code
 3blue1brown fansinating visualization
 ***** https://lexfridman.com/feed :influencer:
 Lex Fridman home page
-***** https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA :ai:
 Lex Fridman youtube
-***** https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw :ai:
 Henry AI Labs, with weekly summary in ai
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCP7WmQ_U4GB3K51Od9QvM0w :networking:cyber_security:
+David Bombal, networking, cyber_security
+***** https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ :andrej:
+Andrej Karpathy
 **** paper :paper:
 ***** https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg :youtube:
 two minutes paper
@@ -89,13 +91,8 @@ Cruise blog
 ** Knowledge :knowledge:
 *** https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnInmOkrWN4gof9KlhNmQ :youtube:laogao:
 Laogao broad topics
-*** https://fs.blog/feed :influencer:fs:
-farnamstreet blog
-*** https://ryanholiday.net/feed :reading:books:influencer:
 *** http://feeds.hbr.org/harvardbusiness :magazine:
 Harvard business review
-*** https://seths.blog/feed :influencer:sethgodin:
-Seth Godin blog
 *** https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A :youtube:coldfusion:
 ColdFusion youtube channel
 ** Finance :finance:
@@ -103,21 +100,41 @@ ColdFusion youtube channel
 *** https://blogs.cfainstitute.org/investor/feed/
 *** https://www.blog.invesco.us.com/feed/
 *** https://vanguardblog.com/feed/ :institute:
-Varguard blog
-*** https://feeds.a.dj.com/rss/RSSMarketsMain.xml :institute:news:
-Wallstreet journal
+Vanguard blog
 *** https://www.blackrockbkcc.com/rss/news-releases.xml?items=15 :institute:
 Black Rock
 *** https://www.forbes.com/money/feed/ :news:forbes:money:
 Forbes money rss
 ** Insights
 ** News :news:
-*** https://www.economist.com/sections/economics/rss.xml :economist:
-Economist economy
+*** https://www.economist.com/the-world-this-week/rss.xml :economist:
+Economist the world this week
+*** https://www.economist.com/finance-and-economics/rss.xml :economist:
+Economist business and finance
 *** http://feeds.bbci.co.uk/news/world/rss.xml :bbc:
 BBC world news
+*** https://www.iamexpat.nl/rss/news-netherlands/news :dutch:
+I am expat news about netherlands
 ** Fun :fun:
 *** https://www.youtube.com/feeds/videos.xml?channel_id=UCMtFAi84ehTSYSE9XoHefig :youtube:lateshow:
 Late show with Stephen Colbert
 *** https://www.youtube.com/feeds/videos.xml?channel_id=UCwWhs_6x42TyRM4Wstoq8HA :youtube:dailyshow:
 Daily show with Trever Noah
+** Blogs :blog:
+*** https://batsov.com :emacs:linux:
+# author Bozhidar Batsov
+*** https://tim.blog/feed/ :timferris:
+# author and podcaster Tim Ferris
+*** https://seths.blog/feed :influencer:sethgodin:
+Seth Godin blog
+*** https://jamesclear.com/feed :jamesclear:habit:
+James Clear blog
+*** https://ryanholiday.net/feed :reading:books:influencer:
+Ryan Holiday blog
+** Newsletter :newsletter:
+*** https://kill-the-newsletter.com/feeds/qkdt84ca6551bffj.xml :thebatch:vision:ai:
+The Batch, created with kill-the-newsletter
+*** https://kill-the-newsletter.com/feeds/syy9z9rkelc5dxm6.xml :nextdraft:article:
+NextDraft newsletter, created with kill-the-newsletter
+*** https://kill-the-newsletter.com/feeds/1p7xxta1is2033vx.xml :fs:blog:
+Farnamstreet newsletter
