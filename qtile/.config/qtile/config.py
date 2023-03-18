@@ -11,8 +11,8 @@ from libqtile.lazy import lazy
 from typing import List  # noqa: F401
 
 mod = "mod4"                             # Sets mod key to SUPER/WINDOWS
-myTerm = "kitty"                         # My terminal of choice
-#myTerm = "alacritty"                     # My terminal of choice
+#myTerm = "kitty"                         # My terminal of choice
+myTerm = "alacritty"                     # My terminal of choice
 
 FONTSIZE = 15
 SCREEN_SIZE = 25
@@ -443,13 +443,13 @@ def init_widgets_list(fontsize=None):
         #          padding=0,
         #          fontsize=fontsize
         #          ),
-        widget.TextBox(
-                 text=" ₿",
-                 padding=0,
-                 foreground=colors[2],
-                 background=colors[0],
-                 fontsize=fontsize
-                 ),
+        #widget.TextBox(
+        #         text=" ₿",
+        #         padding=0,
+        #         foreground=colors[2],
+        #         background=colors[0],
+        #         fontsize=fontsize
+        #         ),
         widget.CPUGraph(
                  foreground=colors[2],
                  background=colors[0]
