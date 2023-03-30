@@ -272,3 +272,6 @@
 (setq plantuml-default-exec-mode 'jar)
 ;; (setq plantuml-server-url "http://localhost:8080")
 ;; (setq plantuml-default-exec-mode 'server)
+
+;; load flycheck-ruff
+(load! "lisp/flycheck-ruff.el")
