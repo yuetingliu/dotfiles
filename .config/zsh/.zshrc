@@ -44,3 +44,5 @@ export PATH="$PATH:/home/yueting/.local/bin:/home/yueting/.emacs.d/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.config/zsh/.p10k.zsh.
 [[ ! -f ~/dotfiles/.config/zsh/.p10k.zsh ]] || source ~/dotfiles/.config/zsh/.p10k.zsh
+
+alias ipad_emacs='TERM=xterm-emacs emacsclient -nw'
