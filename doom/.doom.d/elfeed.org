@@ -131,6 +131,8 @@ Seth Godin blog
 James Clear blog
 *** https://ryanholiday.net/feed :reading:books:influencer:
 Ryan Holiday blog
+*** https://manateelazycat.github.io/feed.xml :emacs:linux:misc:
+An awesome learner, highly capable
 ** Newsletter :newsletter:
 *** https://kill-the-newsletter.com/feeds/qkdt84ca6551bffj.xml :thebatch:vision:ai:
 The Batch, created with kill-the-newsletter
