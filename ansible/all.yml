@@ -6,6 +6,10 @@
       tags:
         - alacritty
         - dev
+    - role: fish
+      tags:
+        - dev
+        - fish
     - role: zsh
       tags:
         - zsh

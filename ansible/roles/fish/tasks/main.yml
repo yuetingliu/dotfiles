@@ -1,0 +1,10 @@
+- name: Install fish
+  package:
+    name:
+      - fish
+    state: installed
+  become: yes
+- name: set up ssh alias
+  ansible.builtin.command: fish -c "alias -s ssh='kitty +kitten ssh'"
+- name: set up vim alias
+  ansible.builtin.command: fish -c "alias -s vim=nvim"
