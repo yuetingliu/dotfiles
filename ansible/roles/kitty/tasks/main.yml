@@ -1,0 +1,9 @@
+- name: Install kitty
+  package:
+    name:
+      - kitty
+    state: installed
+  become: yes
+  tags:
+    - dev
+    - kitty

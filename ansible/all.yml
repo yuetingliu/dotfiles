@@ -6,6 +6,10 @@
       tags:
         - alacritty
         - dev
+    - role: kitty
+      tags:
+        - dev
+        - kitty
     - role: fish
       tags:
         - dev
