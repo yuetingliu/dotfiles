@@ -1,4 +1,7 @@
 #+TITLE: Elfeed sources
+* Tags
+** tier2
+*** tier1
 * Feeds :elfeed:
 ** Technology :tech:
 *** https://www.technologyreview.com/feed :mit:news:
@@ -25,22 +28,26 @@ author of elfeed
 Computerphile
 *** AI :ai:
 **** entry-title \(ai\|machine learning\|deep learning\|artificial intelligence\)
-**** https://www.reddit.com/r/MachineLearning/.rss :reddit:
+**** https://www.reddit.com/r/MachineLearning/.rss :reddit:news:
 Reddit Machine Learning
 **** https://distill.pub/rss.xml
 distill pub has famous figures
 **** http://news.mit.edu/rss/topic/artificial-intelligence2 :institute:mit:
 MIT AI blog
-**** https://openai.com/blog/rss :institute:openai:
-OpenAI blog
 **** https://www.fast.ai/atom.xml :institute:fastai:
 Fast.ai blog
-**** http://feeds.feedburner.com/blogspot/gJZg :institute:google:blog:
+**** https://openai.com/blog/rss :institute:openai:tier1:blog:
+OpenAI blog
+**** http://feeds.feedburner.com/blogspot/gJZg :institute:google:blog:tier1:
 Google AI blog
+**** https://blog.google/technology/ai/rss/ :institute:google:blog:tier1:
+Google tech blog
+**** https://deepmind.com/blog/feed/basic/ :institute:deepmind:google:tier1:
+Deep mind blog
+**** https://kill-the-newsletter.com/feeds/fc58zifm1g4qo45d.xml :institute:meta:tier1:newsletter:
+Meta AI blog via kill-the-newsletter
 **** https://medium.com/feed/ai2-blog :institute:ai2:
 Allen Institute for AI Ai2
-**** https://deepmind.com/blog/feed/basic/ :institute:deepmind:google:
-Deep mind blog
 **** https://www.reddit.com/r/reinforcementlearning/.rss?format=xml :reddit:RL:
 Reddit Reinforcement Learning
 **** https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml :magazine:
