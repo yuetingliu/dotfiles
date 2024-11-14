@@ -5,9 +5,11 @@
 
 ;; Set org agenda files
 (setq org-agenda-files (append '("~/org/gtd.org"
-                               "~/org/backend_dev.org"
-                               "~/org/capra.org")
-                               (file-expand-wildcards "~/org/projects/*/*.org")))
+                                 "~/org/work.org")
+                                (file-expand-wildcards "~/org/projects/*/*.org")))
+
+;; update timestamp when saving
+(add-hook 'before-save-hook 'time-stamp)
 
 ;; Workflow sequence, track TODO state changes
 (after! org
@@ -94,7 +96,7 @@
 ;; Set org latex preview scale
 (after! org
      (setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.5)))
+      (plist-put org-format-latex-options :scale 1.5)))
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
@@ -122,7 +124,7 @@
                 ("C-c C-w" . elfeed-tube-mpv-where)))
 
 ;; set up org-journal
-(setq org-journal-file-type 'weekly)
+(setq org-journal-file-type 'monthly)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -136,7 +138,10 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
+;; use nerd font
+;; (setq doom-font (font-spec :family "MesloLGS NF" :size 13 :weight 'semi-light)
+(setq doom-symbol-font (font-spec :family "MesloLGS Nerd Font Propo" :size 13))
+(setq doom-font (font-spec :family "MesloLGS Nerd Font Propo" :size 14))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -179,10 +184,10 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Inbox")
          "* TODO %?\nEntered on %U\n  %i\n  %a")
-        ("n" "Notes" entry (file+datetree "~/org/notes.org")
+        ("n" "Notes" entry (file+datetree "~/org/notes_inbox.org")
          "* %?\nEntered on %U\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal_inbox.org")
+         "* %?\nEntered on %U\n  %i")
         ("s" "Slipbox" entry  (file "~/org/roam/inbox.org")
          "* %?\n"))))
 
@@ -226,13 +231,52 @@
 (setq evil-vsplit-window-right t
      evil-split-window-below t)
 
+;; Configs for python
 ;; set up vertical line indicator
-(add-hook 'python-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook  #'fci-mode)
 (setq fci-rule-column 80
       fci-rule-color "red")
 
 ;; load keychain-environment to handle ssh agent
 (keychain-refresh-environment)
+
+;; set lsp ui
+(use-package! lsp-ui
+  :after lsp-mode
+  ;; :after lsp-mode
+  :config (setq lsp-ui-sideline-show-hover t
+                lsp-ui-sideline-delay 0.5
+                lsp-ui-doc-delay 5
+                lsp-ui-sideline-ignore-duplicates t
+                lsp-ui-doc-position 'bottom
+                lsp-ui-doc-alignment 'frame
+                lsp-ui-doc-header nil
+                lsp-ui-doc-include-signature t
+                lsp-ui-doc-use-childframe t)
+)
+(after! lsp-ui-imenu
+  (setq lsp-ui-imenu-auto-refresh t)
+  (setq lsp-imenu-sort-methods '(position kind))
+  (setq lsp-imenu-index-symbol-kinds '(Class Method Function Enum))
+  (setq lsp-ui-imenu--custom-mode-line-format
+        '((:title "Classes" :category "Class")
+          (:title "Functions" :category "Function")
+          (:title "Methods" :category "Method")))
+)
+
+(use-package! imenu-list
+  :commands imenu-list-smart-toggle)
+(after! imenu
+  (setq imenu-auto-rescan t)
+  (setq imenu-list-auto-resize t)
+  (setq imenu-list-max-width 40)
+  (setq imenu-sort-function 'imenu--sort-by-position)
+)
+
+;; (map! :leader
+;;       :desc "Toggle imenu-list"
+;;       "i" #'imenu-list-smart-toggle)
+
 
 (use-package! dap-mode
 :after lsp-mode
@@ -244,22 +288,22 @@
 (defun dap-python--pyenv-executable-find (command)
   (with-venv (executable-find "python"))))
 
-;; set up tabnine auto completion
-(after! company
-  ;; (setq +lsp-company-backends '(company-tabnine))
-  (add-to-list '+lsp-company-backends 'company-tabnine)
-  ;; (add-to-list 'company-backends #'company-tabnine)
-  ;; trigger completion immediately
-  (setq company-idle-delay 0)
-  (setq company-show-quick-access t))
+;;;; set up tabnine auto completion
+;;(after! company
+;;  ;; (setq +lsp-company-backends '(company-tabnine))
+;;  (add-to-list '+lsp-company-backends 'company-tabnine)
+;;  ;; (add-to-list 'company-backends #'company-tabnine)
+;;  ;; trigger completion immediately
+;;  (setq company-idle-delay 0.2)
+;;  (setq company-show-quick-access t))
 
-;; set up numpydoc for python docstring generation
-(use-package! numpydoc
-  :after python-mode
-  :config
-  (setq numpydoc-insert-examples-block nil)
-  :bind (:map python-mode-map
-              ("C-c C-n" . numpydoc-generate)))
+;; ;; set up numpydoc for python docstring generation
+;; (use-package! numpydoc
+;;   :after python-mode
+;;   :config
+;;   (setq numpydoc-insert-examples-block nil)
+;;   :bind (:map python-mode-map
+;;               ("C-c C-n" . numpydoc-generate)))
 
 ;; pdftool
 ;; auto-revert after Tex comlilation
@@ -273,5 +317,363 @@
 ;; (setq plantuml-server-url "http://localhost:8080")
 ;; (setq plantuml-default-exec-mode 'server)
 
-;; load flycheck-ruff
+;; python linting and formatting
+;; load flycheck-ruff for linting along with other linters like LSP
 (load! "lisp/flycheck-ruff.el")
+;; also use ruff for formating
+(use-package! ruff-format
+  :after python-mode)
+
+(use-package! corfu
+  :custom
+  (corfu-separator ?\s)
+  (corfu-auto t)
+  (corfu-auto-delay 0.2)
+  (corfu-preview-current nil) ;; Disable current candidate preview
+  (corfu-on-exact-match nil)
+  (corfu-quit-no-match t)
+  (corfu-cycle t)
+  (corfu-auto-prefix 0.5)
+  (completion-cycle-threshold 0.5)
+  (tab-always-indent 'complete)
+  (corfu-max-width 80)
+  (corfu-preselect-first nil)
+  :hook
+  (doom-first-buffer . global-corfu-mode)
+  :config
+  ;; ;; disable company-mode
+  ;; (setq company-mode nil)
+  ;; (setq global-company-mode nil)
+;;  (setq company-backends '(corfu-company))
+ ;; (when (modulep! +minibuffer)
+ ;;   (add-hook 'minibuffer-setup-hook #'+corfu--enable-in-minibuffer))
+
+;;  ;; Dirty hack to get c completion running
+;;  ;; Discussion in https://github.com/minad/corfu/issues/34
+;;  (when (and (modulep! :lang cc)
+;;             (equal tab-always-indent 'complete))
+;;    (map! :map c-mode-base-map
+;;          :i [remap c-indent-line-or-region] #'completion-at-point))
+
+  ;; Reset lsp-completion provider
+  (add-hook 'doom-init-modules-hook
+            (lambda ()
+              (after! lsp-mode
+                (setq lsp-completion-provider :none))))
+
+  ;; Set orderless filtering for LSP-mode completions
+  ;; TODO: expose a Doom variable to control this part
+  (add-hook 'lsp-completion-mode-hook
+            (lambda ()
+              (setf (alist-get 'lsp-capf completion-category-defaults) '((styles . (orderless flex))))))
+
+  (defun corfu-move-to-minibuffer ()
+    "Move current completions to the minibuffer"
+    (interactive)
+    (let ((completion-extra-properties corfu--extra)
+          completion-cycle-threshold completion-cycling)
+      (apply #'consult-completion-in-region completion-in-region--data)))
+
+  (map! :map corfu-map
+        "SPC"    #'corfu-insert-separator
+        "C-n"      #'corfu-next
+        "C-p"      #'corfu-previous
+        "<escape>" #'corfu-quit
+        "M-m"      #'corfu-move-to-minibuffer
+        "M-d"      #'corfu-popupinfo-documentation
+        (:prefix "C-x"
+                 "C-k"     #'cape-dict
+                 "s"       #'cape-ispell
+                 "C-n"     #'cape-keyword
+                 "C-l"     #'cape-line
+                 "C-f"     #'cape-file))
+  )
+  ;; (after! evil
+  ;;   (advice-add 'corfu--setup :after 'evil-normalize-keymaps)
+  ;;   (advice-add 'corfu--teardown :after 'evil-normalize-keymaps)
+  ;;   (evil-make-overriding-map corfu-map)))
+;;
+;;  (defadvice! +corfu--org-return (orig) :around '+org/return
+;;    (if (and (modulep! :completion corfu)
+;;             corfu-mode
+;;             (>= corfu--index 0))
+;;        (corfu-insert)
+;;      (funcall orig))))
+;;
+;;  ;; TODO: check how to deal with Daemon/Client workflow with that
+;;  (unless (display-graphic-p)
+;;    (corfu-doc-terminal-mode)
+;;    (corfu-terminal-mode)))
+
+(use-package! orderless
+;;  :when (modulep! +orderless)
+  :init
+  (setq completion-styles '(orderless partial-completion)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+
+(use-package! kind-icon
+  :after corfu
+;;  :when (modulep! +icons)
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+;;  (setq kind-icon-use-icons t
+;;        svg-lib-icons-dir (expand-file-name "svg-lib" doom-cache-dir)
+;;        kind-icon-mapping
+;;        '((array "a" :icon "code-brackets" :face font-lock-variable-name-face)
+;;          (boolean "b" :icon "circle-half-full" :face font-lock-builtin-face)
+;;          (class "c" :icon "view-grid-plus-outline" :face font-lock-type-face)
+;;          (color "#" :icon "palette" :face success)
+;;          (constant "co" :icon "pause-circle" :face font-lock-constant-face)
+;;          (constructor "cn" :icon "table-column-plus-after" :face font-lock-function-name-face)
+;;          (enum "e" :icon "format-list-bulleted-square" :face font-lock-builtin-face)
+;;          (enum-member "em" :icon "format-list-checks" :face font-lock-builtin-face)
+;;          (event "ev" :icon "lightning-bolt-outline" :face font-lock-warning-face)
+;;          (field "fd" :icon "application-braces-outline" :face font-lock-variable-name-face)
+;;          (file "f" :icon "file" :face font-lock-string-face)
+;;          (folder "d" :icon "folder" :face font-lock-doc-face)
+;;          (function "f" :icon "lambda" :face font-lock-function-name-face)
+;;          (interface "if" :icon "video-input-component" :face font-lock-type-face)
+;;          (keyword "kw" :icon "image-filter-center-focus" :face font-lock-keyword-face)
+;;          (macro "mc" :icon "sigma" :face font-lock-keyword-face)
+;;          (method "m" :icon "lambda" :face font-lock-function-name-face)
+;;          (module "{" :icon "view-module" :face font-lock-preprocessor-face)
+;;          (numeric "nu" :icon "numeric" :face font-lock-builtin-face)
+;;          (operator "op" :icon "plus-circle-outline" :face font-lock-comment-delimiter-face)
+;;          (param "pa" :icon "cog" :face default)
+;;          (property "pr" :icon "tune-vertical" :face font-lock-variable-name-face)
+;;          (reference "rf" :icon "bookmark-box-multiple" :face font-lock-variable-name-face)
+;;          (snippet "S" :icon "text-short" :face font-lock-string-face)
+;;          (string "s" :icon "sticker-text-outline" :face font-lock-string-face)
+;;          (struct "%" :icon "code-braces" :face font-lock-variable-name-face)
+;;          (t "." :icon "crosshairs-question" :face shadow)
+;;          (text "tx" :icon "script-text-outline" :face shadow)
+;;          (type-parameter "tp" :icon "format-list-bulleted-type" :face font-lock-type-face)
+;;          (unit "u" :icon "ruler-square" :face shadow)
+;;          (value "v" :icon "numeric-1-box-multiple-outline" :face font-lock-builtin-face)
+;;          (variable "va" :icon "adjust" :face font-lock-variable-name-face)))
+  (add-hook 'doom-load-theme-hook #'kind-icon-reset-cache)
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+
+(use-package! cape
+  :defer t
+  :init
+  (map!
+   [remap dabbrev-expand] 'cape-dabbrev)
+  (add-hook! 'latex-mode-hook (defun +corfu--latex-set-capfs ()
+                                (add-to-list 'completion-at-point-functions #'cape-tex)))
+  (add-to-list 'completion-at-point-functions #'cape-dict)
+  (add-to-list 'completion-at-point-functions #'cape-file)
+;;  (add-to-list 'completion-at-point-functions #'cape-line)
+  (add-to-list 'completion-at-point-functions #'cape-keyword t)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
+
+
+;;(use-package! corfu-history
+;;  :after corfu
+;;  :hook (corfu-mode . (lambda ()
+;;                        (corfu-history-mode 1)
+;;                        (savehist-mode 1)
+;;                        (add-to-list 'savehist-additional-variables 'corfu-history))))
+
+(use-package! corfu-quick
+  :after corfu
+  :bind (:map corfu-map
+              ("M-q" . corfu-quick-complete)
+              ("C-q" . corfu-quick-insert)))
+
+(use-package! corfu-echo
+  :after corfu
+  :hook (corfu-mode . corfu-echo-mode))
+
+
+(use-package! corfu-info
+  :after corfu)
+
+
+(use-package! corfu-popupinfo
+  :after corfu
+  :hook (corfu-mode . corfu-popupinfo-mode))
+
+(when (modulep! :editor evil +everywhere)
+  (setq evil-collection-corfu-key-themes '(default magic-return)))
+
+;;(use-package! cape-yasnippet
+;;  :after cape)
+
+;;;; Override :config default mapping by waiting for after corfu is loaded
+;;(add-hook! 'doom-after-modules-config-hook
+;;  (defun +corfu-unbind-yasnippet-h ()
+;;    "Remove problematic tab bindings in cmds! on :i TAB"
+;;    (map! :i [tab] nil
+;;          :i "TAB" nil
+;;          :i "C-SPC" #'completion-at-point
+;;          :i "C-@" #'completion-at-point)))
+
+;; set up github copilot
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;;;;; ---------------------------------------------------
+;;;;; set up codeium auto completion
+;;;;; we recommend using use-package to organize your init.el
+;;(use-package! codeium
+;;    ;; if you use straight
+;;    ;; :straight '(:type git :host github :repo "Exafunction/codeium.el")
+;;    ;; otherwise, make sure that the codeium.el file is on load-path
+;;
+;;    :init
+;;    ;; use globally
+;;;;    (add-to-list 'completion-at-point-functions #'codeium-completion-at-point)
+;;    ;; or on a hook
+;;    (add-hook 'python-mode-hook
+;;        (lambda ()
+;;            (setq-local completion-at-point-functions '(codeium-completion-at-point)))))
+;;
+;;    ;; if you want multiple completion backends, use cape (https://github.com/minad/cape):
+;;;;    (add-hook 'python-mode-hook
+;;;;        (lambda ()
+;;;;            (setq-local completion-at-point-functions
+;;;;                (list (cape-super-capf #'codeium-completion-at-point #'lsp-completion-at-point)))))
+;;    ;; an async company-backend is coming soon!
+;;
+;;    ;; codeium-completion-at-point is autoloaded, but you can
+;;
+;;    ;; codeium local language server takes ~0.2s to start up
+;;    ;; (add-hook 'emacs-startup-hook
+;;    ;;  (lambda () (run-with-timer 0.1 nil #'codeium-init)))
+
+;;    ;; :defer t ;; lazy loading, if you want
+;;    :config
+;;    (setq use-dialog-box nil) ;; do not use popup boxes
+;;
+;;    ;; if you don't want to use customize to save the api-key
+;;    (setq codeium/metadata/api_key "0930a4ba-0fea-4b91-90c4-536bdde51c64")
+;;    ;; get codeium status in the modeline
+;;    (setq codeium-mode-line-enable
+;;        (lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
+;;    (add-to-list 'mode-line-format '(:eval (car-safe codeium-mode-line)) t)
+;;    ;; alternatively for a more extensive mode-line
+;;    ;; (add-to-list 'mode-line-format '(-50 "" codeium-mode-line) t)
+;;
+;;    ;; use M-x codeium-diagnose to see apis/fields that would be sent to the local language server
+;;    (setq codeium-api-enabled
+;;        (lambda (api)
+;;            (memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion))))
+;;    ;; you can also set a config for a single buffer like this:
+;;    ;; (add-hook 'python-mode-hook
+;;    ;;     (lambda ()
+;;    ;;         (setq-local codeium/editor_options/tab_size 4)))
+;;
+;;    ;; You can overwrite all the codeium configs!
+;;    ;; for example, we recommend limiting the string sent to codeium for better performance
+;;    (defun my-codeium/document/text ()
+;;        (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
+;;    ;; if you change the text, you should also change the cursor_offset
+;;    ;; warning: this is measured by UTF-8 encoded bytes
+;;    (defun my-codeium/document/cursor_offset ()
+;;        (codeium-utf8-byte-length
+;;            (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (point))))
+;;    (setq codeium/document/text 'my-codeium/document/text)
+;;    (setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
+;;;; ---------------------------------------------------
+
+;; set up chatGPT
+;; with package gptel
+(use-package! gptel)
+
+;; set up org-cv
+(use-package! ox-moderncv)
+(use-package! ox-awesomecv)
+
+;; set up org-babel
+;; set global python interpreter
+(setq org-babel-python-command "/home/yueting/.pyenv/shims/python")
+
+;; set browser to system default browser
+(setq browse-url-browser-function 'browse-url-xdg-open)
+
+;; make workspaces always visible
+(after! doom-modeline
+  (setq doom-modeline-persp-name t))
+
+;; ;; use lualatex to as latex compiler
+;; (setq org-latex-pdf-process '("lualatex %f" "lualatex %f" "lualatex %f"))
+
+;; enable beacon
+(use-package! beacon
+ :config
+ (beacon-mode 1))
+
+;; set up org-modern after org
+(use-package! org-modern
+ :after org
+ :config
+ ;; Option 1: Per buffer
+ (setq org-modern-label-border 0.3)
+ ;; disable org modern table as it has alignment issue
+ (setq org-modern-table nil)
+ (add-hook 'org-mode-hook #'org-modern-mode)
+ (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
+
+;; set transparency
+(set-frame-parameter nil 'alpha-background 90) ; For current frame
+;; (set-frame-parameter nil 'alpha-background 100) ; For current frame no transparency
+(add-to-list 'default-frame-alist '(alpha-background . 90)) ; For all new frames henceforth
+
+;; auto revert buffer
+(global-auto-revert-mode 1)
+
+;; use zathura to open pdf files
+(setq org-file-apps
+      '((auto-mode . emacs)
+        ("\\.x?html?\\'" . default)
+        ("\\.pdf\\'" . "zathura %s")
+        ("\\.pdf::\\([0-9]+\\)\\'" . "zathura %s -p %1")))
+
+;; set up lsp-booster
+(defun lsp-booster--advice-json-parse (old-fn &rest args)
+  "Try to parse bytecode instead of json."
+  (or
+   (when (equal (following-char) ?#)
+     (let ((bytecode (read (current-buffer))))
+       (when (byte-code-function-p bytecode)
+         (funcall bytecode))))
+   (apply old-fn args)))
+(advice-add (if (progn (require 'json)
+                       (fboundp 'json-parse-buffer))
+                'json-parse-buffer
+              'json-read)
+            :around
+            #'lsp-booster--advice-json-parse)
+
+(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+  "Prepend emacs-lsp-booster command to lsp CMD."
+  (let ((orig-result (funcall old-fn cmd test?)))
+    (if (and (not test?)                             ;; for check lsp-server-present?
+             (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+             lsp-use-plists
+             (not (functionp 'json-rpc-connection))  ;; native json-rpc
+             (executable-find "emacs-lsp-booster"))
+        (progn
+          (message "Using emacs-lsp-booster for %s!" orig-result)
+          (cons "emacs-lsp-booster" orig-result))
+      orig-result)))
+(advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+
+;; set tramp default remote shell to bash
+(setq tramp-default-remote-shell "/bin/bash")
+(setq tramp-default-remote-shell-args (list "-l" "-c"))
+
+;;;; set up lsp-bridge
+;;(use-package! lsp-bridge
+;;  :config
+;;  (setq lsp-bridge-enable-log nil)
+;;  (global-lsp-bridge-mode))
