@@ -192,9 +192,9 @@
          "* %?\n"))))
 
 ;; org-roam
-(setq org-roam-directory (concat org-directory "notes/roam"))
+(setq org-roam-directory (concat org-directory "roam/"))
 ;; org-roam-dailies
-(setq org-roam-dailies-directory "dailies/")
+(setq org-roam-dailies-directory "journals/")
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
        "* %<%H:%M> %?"
