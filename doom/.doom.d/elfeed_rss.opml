@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Elfeed-Org Export</title>
+  </head>
+  <body>
+      <outline title="AI">
+        <outline title="Machine Learning" xmlUrl="https://www.reddit.com/r/MachineLearning/.rss"/>
+        <outline title="MIT News - Artificial intelligence" xmlUrl="http://news.mit.edu/rss/topic/artificial-intelligence2"/>
+        <outline title="fast.ai" xmlUrl="https://www.fast.ai/index.xml"/>
+        <outline title="Artificial Intelligence News -- ScienceDaily" xmlUrl="https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml"/>
+        <outline title="Artificial Intelligence Blog &amp; News • AI News • AI Blog" xmlUrl="https://www.artificial-intelligence.blog/ai-news?format=rss"/>
+        <outline title="Emergent Mind Feed" xmlUrl="https://www.emergentmind.com/feeds/rss"/>
+      </outline>
+      <outline title="Self-driving-car">
+        <outline title="Waypoint - The official Waymo blog" xmlUrl="https://blog.waymo.com/rss.xml"/>
+        <outline title="MIT News - Autonomous vehicles" xmlUrl="https://news.mit.edu/topic/mitautonomous-vehicles-rss.xml"/>
+        <outline title="The Verge - Transpo Posts" xmlUrl="https://www.theverge.com/transportation/rss/index.xml"/>
+        <outline title="Self-Driving Cars – Look, no hands!" xmlUrl="https://www.reddit.com/r/SelfDrivingCars/.rss"/>
+        <outline title="Cruise - Medium" xmlUrl="https://medium.com/feed/cruise"/>
+      </outline>
+      <outline title="Finance">
+        <outline title="CFA Institute Enterprising Investor" xmlUrl="https://blogs.cfainstitute.org/investor/feed/"/>
+        <outline title="BlackRock Capital Investment Corporation News Releases" xmlUrl="https://www.blackrockbkcc.com/rss/news-releases.xml?items=15"/>
+        <outline title="Forbes - Money" xmlUrl="https://www.forbes.com/money/feed/"/>
+      </outline>
+      <outline title="News">
+        <outline title="MIT Technology Review" xmlUrl="https://www.technologyreview.com/feed"/>
+        <outline title="Synced" xmlUrl="https://syncedreview.com/feed"/>
+        <outline title="The world this week" xmlUrl="https://www.economist.com/the-world-this-week/rss.xml"/>
+        <outline title="Finance &amp; economics" xmlUrl="https://www.economist.com/finance-and-economics/rss.xml"/>
+        <outline title="BBC News - World" xmlUrl="http://feeds.bbci.co.uk/news/world/rss.xml"/>
+        <outline title="IamExpat.nl | Dutch News" xmlUrl="https://www.iamexpat.nl/rss/news-netherlands/news"/>
+        <outline title="The Verge - All Posts" xmlUrl="https://www.theverge.com/rss/index.xml"/>
+        <outline title="TechCrunch" xmlUrl="https://techcrunch.com/feed"/>
+        <outline title="Hacker News" xmlUrl="https://news.ycombinator.com/rss"/>
+      </outline>
+      <outline title="Youtube">
+        <outline title="DistroTube" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg"/>
+        <outline title="The Daily Show" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCwWhs_6x42TyRM4Wstoq8HA"/>
+        <outline title="The Late Show with Stephen Colbert" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCMtFAi84ehTSYSE9XoHefig"/>
+        <outline title="sentdex" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ"/>
+        <outline title="3Blue1Brown" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw"/>
+        <outline title="Lex Fridman" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA"/>
+        <outline title="Connor Shorten" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw"/>
+        <outline title="David Bombal" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCP7WmQ_U4GB3K51Od9QvM0w"/>
+        <outline title="Andrej Karpathy" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ"/>
+        <outline title="Two Minute Papers" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg"/>
+        <outline title="Yannic Kilcher" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew"/>
+        <outline title="Computerphile" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA"/>
+        <outline title="老高與小茉 Mr &amp; Mrs Gao" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnInmOkrWN4gof9KlhNmQ"/>
+        <outline title="ColdFusion" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A"/>
+        <outline title="Sabine Hossenfelder" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC1yNl2E66ZzKApQdRuTQ4tw"/>
+      </outline>
+      <outline title="Blogs">
+        <outline title="The Blog of Author Tim Ferriss" xmlUrl="https://tim.blog/feed/"/>
+        <outline title="Seth&apos;s Blog" xmlUrl="https://seths.blog/feed"/>
+        <outline title="James Clear" xmlUrl="https://jamesclear.com/feed"/>
+        <outline title="RyanHoliday.net" xmlUrl="https://ryanholiday.net/feed"/>
+        <outline title="manateelazycat.github.io" xmlUrl="https://manateelazycat.github.io/feed.xml"/>
+        <outline title="null program" xmlUrl="http://nullprogram.com/feed/"/>
+        <outline title="Paul Graham" xmlUrl="http://www.aaronsw.com/2002/feeds/pgessays.rss"/>
+        <outline title="Daryl Manning" xmlUrl="https://daryl.wakatara.com/rss.xml"/>
+      </outline>
+      <outline title="Newsletter">
+        <outline title="the batch" xmlUrl="https://kill-the-newsletter.com/feeds/qkdt84ca6551bffj.xml"/>
+        <outline title="Meta AI" xmlUrl="https://kill-the-newsletter.com/feeds/821kcqwu2skzr8l4.xml"/>
+        <outline title="nextDraft" xmlUrl="https://kill-the-newsletter.com/feeds/syy9z9rkelc5dxm6.xml"/>
+        <outline title="farnamstreet" xmlUrl="https://kill-the-newsletter.com/feeds/1p7xxta1is2033vx.xml"/>
+        <outline title="AI weekly" xmlUrl="https://kill-the-newsletter.com/feeds/wbsh2sptk4hbthk7.xml"/>
+        <outline title="Papers with Code Newsletter" xmlUrl="https://kill-the-newsletter.com/feeds/lvu4jkgj1mjxoezy.xml"/>
+        <outline title="Import AI" xmlUrl="https://kill-the-newsletter.com/feeds/nghq8ynyj6q0c3wc.xml"/>
+        <outline title="MIT tech review" xmlUrl="https://kill-the-newsletter.com/feeds/kj1tpn22w8t7avj5.xml"/>
+      </outline>
+      <outline title="Companies">
+        <outline title="Meta Research" xmlUrl="https://research.facebook.com/feed/"/>
+        <outline title="Apple Machine Learning Research" xmlUrl="https://machinelearning.apple.com/rss.xml"/>
+        <outline title="OpenAI Blog" xmlUrl="https://openai.com/blog/rss"/>
+        <outline title="Google AI Blog" xmlUrl="http://feeds.feedburner.com/blogspot/gJZg"/>
+        <outline title="The Keyword" xmlUrl="https://blog.google/rss/"/>
+        <outline title="AI" xmlUrl="https://blog.google/technology/ai/rss/"/>
+        <outline title="DeepMind Blog" xmlUrl="https://deepmind.com/blog/feed/basic/"/>
+      </outline>
+      <outline title="Papers">
+        <outline title="Lex Fridman" xmlUrl="https://lexfridman.com/feed"/>
+        <outline title="DeepMind Publications" xmlUrl="https://deepmind.com/publications/rss.xml"/>
+      </outline>
+      <outline title="Magazine">
+        <outline title="HBR.org" xmlUrl="http://feeds.hbr.org/harvardbusiness"/>
+      </outline>
+      <outline title="China">
+        <outline title="机器之心" xmlUrl="https://www.jiqizhixin.com/rss"/>
+        <outline title="奇客Solidot–传递最新科技情报" xmlUrl="https://www.solidot.org/index.rss"/>
+      </outline>
+  </body>
+</opml>

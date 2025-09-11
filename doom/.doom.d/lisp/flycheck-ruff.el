@@ -7,7 +7,8 @@ To override the path to the ruff executable, set
 `flycheck-python-ruff-executable'.
 See URL `http://pypi.python.org/pypi/ruff'."
   :command ("ruff"
-            "--format=text"
+            "check"
+            "--output-format=full"
             (eval (when buffer-file-name
                     (concat "--stdin-filename=" buffer-file-name)))
             "-")
@@ -21,7 +22,7 @@ See URL `http://pypi.python.org/pypi/ruff'."
             (id (one-or-more (any alpha)) (one-or-more digit)) " "
             (message (one-or-more not-newline))
             line-end))
-  :modes python-mode)
+  :modes (python-mode python-ts-mode))
 
 ;; Use something adapted to your config to add `python-ruff' to `flycheck-checkers'
 ;; This is an MVP example:

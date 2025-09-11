@@ -12,8 +12,8 @@
 ;; Elfeed for RSS
 ;; disable elfeed goodies
 (package! elfeed-goodies :disable t)
-;; add elfeed-web
-(package! elfeed-web)
+;;;; add elfeed-web
+;; (package! elfeed-web)
 ;; use elfeed-tube
 (package! elfeed-tube)
 ;; install mpv for elfeed-tube
@@ -37,11 +37,8 @@
 (package! with-venv
   :recipe (:host github :repo "10sr/with-venv-el"))
 
-;; use tabnine as company backend for auto-completion
-(package! company-tabnine)
-
 ;; Python docstring generation using numpydoc
-(package! numpydoc)
+;; (package! numpydoc)
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
@@ -83,3 +80,62 @@
 
 ;;pocket-reader
 (package! pocket-reader)
+
+;; AI completion tools
+;; use tabnine as company backend for auto-completion
+;; (package! company-tabnine)
+;; ;; Codeium
+;; (package! codeium:
+;;   :recipe (:host github :repo "Exafunction/codeium.el"))
+
+;; ;; corfu
+;; ;; (package! company :disable t)
+;; (package! corfu
+;;   :recipe (:files (:defaults "extensions/*.el")))
+;; (package! kind-icon)
+;; (package! orderless)
+;; (package! cape)
+
+;;(package! popon
+;;  :recipe (:host github :repo "https://codeberg.org/akib/emacs-popon"))
+;;(package! corfu-terminal
+;;  :recipe (:type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+;;(package! corfu-doc-terminal
+;;  :recipe (:type git :repo "https://codeberg.org/akib/emacs-corfu-doc-terminal.git"))
+;;
+;; add snippet support to cape
+(package! cape-yasnippet
+ :recipe (:host github :repo "elken/cape-yasnippet"))
+
+;; AI stuff, chatGPT, copilot
+;; integrate chatGPT
+(package! gptel)
+;; Github Copilot
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
+(package! org-cv
+  :recipe (:host gitlab :repo "Titan-C/org-cv" :files ("*.el")))
+
+;; ;; use imenu-list
+;; (package! imenu-list)
+
+;; use beacon
+(package! beacon)
+
+;; use org-modern for eye-candy org-mode
+(package! org-modern)
+
+;; use ruff as python formatter
+(package! ruff-format)
+
+;; ;; use lsp-bridge
+;; (when (package! lsp-bridge
+;;         :recipe (:host github
+;;                  :repo "manateelazycat/lsp-bridge"
+;;                  :branch "master"
+;;                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+;;                  ;; do not perform byte compilation or native compilation for lsp-bridge
+;;                  :build (:not compile)))
+;;   (package! markdown-mode)
+;;   (package! yasnippet))
