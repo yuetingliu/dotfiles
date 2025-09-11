@@ -2,10 +2,6 @@
   hosts: localhost
   gather_facts: yes
   roles:
-    - role: alacritty
-      tags:
-        - alacritty
-        - dev
     - role: kitty
       tags:
         - dev
@@ -14,21 +10,18 @@
       tags:
         - dev
         - fish
-    - role: zsh
-      tags:
-        - zsh
-        - dev
-    - role: tmux
-      tags:
-        - dev
-        - tmux
     - role: neovim
       tags:
         - dev
         - neovim
-    - role: stow
-      tags: stow
     - role: doom-emacs
       tags: doom-emacs
-    - role: qtile
-      tags: qtile
+    - role: im
+      tags: im
+#    - role: qtile
+#      tags: qtile
+#    - role: zsh
+#      tags:
+#        - zsh
+#    - role: stow
+#      tags: stow

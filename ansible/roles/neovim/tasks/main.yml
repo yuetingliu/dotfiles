@@ -2,10 +2,20 @@
   package:
     name:
       - neovim
-      - ctags
+      - universal-ctags
       - xsel
-    state: installed
+    state: present
   become: yes
-  tags:
-    - neovim
-    - dev
+
+- name: Link config
+  ansible.builtin.file:
+    src: '{{ ansible_env.HOME }}/dotfiles/.config/nvim'
+    dest: '{{ ansible_env.HOME }}/.config/nvim'
+    state: link
+
+- name: Symlink vim to nvim
+  ansible.builtin.file:
+    src: '/usr/bin/nvim'
+    dest: '/usr/bin/vim'
+    state: link
+  become: yes

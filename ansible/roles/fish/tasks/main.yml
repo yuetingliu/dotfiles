@@ -2,9 +2,19 @@
   package:
     name:
       - fish
-    state: installed
+    state: present
   become: yes
-- name: set up ssh alias
-  ansible.builtin.command: fish -c "alias -s ssh='kitty +kitten ssh'"
-- name: set up vim alias
-  ansible.builtin.command: fish -c "alias -s vim=nvim"
+
+- name: Create config dir
+  ansible.builtin.file:
+    path: '{{ ansible_env.HOME }}/.config/fish/'
+    state: directory
+
+- name: Link config
+  ansible.builtin.file:
+    src: '{{ ansible_env.HOME }}/dotfiles/.config/fish/config.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/config.fish'
+    state: link
+
+# configuration
+# install fisher to manage plugins and install tide to theme fish

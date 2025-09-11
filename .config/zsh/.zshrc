@@ -5,11 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# set common aliases
 # use neovim
 alias vim='nvim'
-# show color in ls
-alias ls='ls --color=auto'
+
+# set kitty terminfo
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 # Use emacs keybinding in Terminal
 bindkey -e
@@ -19,18 +19,15 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
-# Zsh plugins
-# -----------
 # Theme
-source $HOME/.local/share/zsh/plugins/zsh-theme-powerlevel10k/config/p10k-rainbow.zsh
-source $HOME/.local/share/zsh/plugins/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+#source /usr/share/powerline/bindings/zsh/powerline.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Auto suggestions
-source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# ---------------------------------------------
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Completion system
 autoload -Uz compinit; compinit

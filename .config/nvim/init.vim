@@ -13,8 +13,8 @@
 "=====================================================
 " automatic installation of plugin manager
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -28,6 +28,8 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'Yggdroot/indentLine'                         " Vertical guide lines
     Plug 'tpope/vim-surround'                          " Parentheses, brackets, quotes, XML tags, and more
     Plug 'neoclide/coc.nvim', {'branch': 'release'}    " coc for full LSP
+    Plug 'nvim-lua/plenary.nvim'                       " Useful lua functions used by many other plugins
+"    Plug 'TimUntersberger/neogit'                      " Neogit
 "    Plug 'dense-analysis/ale'                         " ALE lint, autocomplete
 "    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " auto-complete
 "    Plug 'deoplete-plugins/deoplete-jedi'     " Deoplete source for python
@@ -45,6 +47,15 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'honza/vim-snippets'                 " snippets repo
 
     "-------------------=== Languages support ===-------------------
+    "-------------------=== autocomplete support ===-------------------
+"    Plug 'Exafunction/codeium.vim'
+    Plug 'github/copilot.vim'                 " Copilot
+
+    "-------------------=== Org mode ===-------------------
+    Plug 'nvim-orgmode/orgmode'
+    Plug 'nvim-treesitter/nvim-treesitter'     " treesitter for org file parser
+
+
 call plug#end()
 
 "=====================================================
@@ -335,3 +346,24 @@ let $PATH .= ':/home/yueting/.venvs/vim/bin'
 "hi Normal guibg=#111111 ctermbg=black
 hi NonText ctermbg=None
 hi Normal guibg=None ctermbg=None
+
+
+"=====================================================
+" set nvim treesitter
+" for org mode file support
+"=====================================================
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {'org'},
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = {'org'},
+  },
+}
+require('orgmode').setup({
+  org_agenda_files = {'~/test_nvimorg/*'},
+  org_default_notes_file = '~/test_nvimorg/refile_nvim.org',
+})
+
+EOF
+

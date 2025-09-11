@@ -1,9 +1,13 @@
 - name: Install kitty
   package:
     name:
+      - keychain
       - kitty
-    state: installed
+    state: present
   become: yes
-  tags:
-    - dev
-    - kitty
+
+- name: Link config
+  ansible.builtin.file:
+    src: '{{ ansible_env.HOME }}/dotfiles/.config/kitty'
+    dest: '{{ ansible_env.HOME }}/.config/kitty'
+    state: link

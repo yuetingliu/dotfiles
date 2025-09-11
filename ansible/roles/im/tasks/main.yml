@@ -1,24 +1,24 @@
 - name: Install input method to type Chinese
   vars:
-    conf_fn: chinese_im.conf
-    conf_path: "{{ ansible_env.HOME }}/.xprofile"
+    - conf_fn: chinese_im.conf
+    - conf_path: "/etc/profile.d/input_method"
   package:
     name:
-      - source-han-sans
-      - fcitx-im
-      - fcitx-googlepinyin
-      - fcitx-configtool
+      - fcitx5-im    # has fcitx, fcitx-config-tool, and fcitx-gtk/qt to provide a complete framework
+      - fcitx5-chinese-addons   # provide Chinese 
+      - fcitx5-pinyin-zhwiki   # word dict made by felixonars, the famous chinese arch maintainer
+      # - source-han-sans, OS might already have, endeavorOS has adobe-source-han-sans-{cn,jp,kr}-fonts
+      # - fcitx-googlepinyin  # pinyin-zhwiki might be enough
     state: installed
   become: yes
-  tags:
-    - dev
-    - im
 
-- name: Install fonts
-  shell: fc-cache -fv
+- name: Copy env var file
+  ansible.builtin.copy:
+    src: chinese_im.conf
+    dest: /etc/profile.d/input_method
+    mode: '0644'
   become: yes
 
-- name: Add env var settings
-  lineinfile
-    path: "{{ conf_path }}"
-    line: "{{ conf_fn }}"
+# configuration
+# open fcitx config tool, search pinyin and add it
+# install input method panel extension to have better visuals
