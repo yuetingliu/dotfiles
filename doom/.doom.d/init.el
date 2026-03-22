@@ -160,7 +160,7 @@
        (markdown          ; writing docs for people to ignore
         +grip)            ;; github flavored marked preview
        ;;nim               ; python + lisp at the speed of c
-       ;;nix               ; I hereby declare "nix geht mehr!"
+       nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org               ; organize your plain life in plain text
         ;; +pretty           ; pretty bullets

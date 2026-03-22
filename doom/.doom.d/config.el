@@ -140,8 +140,8 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 ;; use nerd font
 ;; (setq doom-font (font-spec :family "MesloLGS NF" :size 13 :weight 'semi-light)
-(setq doom-symbol-font (font-spec :family "MesloLGS Nerd Font Propo" :size 13))
-(setq doom-font (font-spec :family "MesloLGS Nerd Font Propo" :size 14))
+(setq doom-symbol-font (font-spec :family "MesloLGS Nerd Font Propo" :size 13.0))
+(setq doom-font (font-spec :family "MesloLGS Nerd Font Propo" :size 12.0))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -579,7 +579,7 @@
  (setq org-hide-emphasis-markers t)
  (setq org-pretty-entities t)
  (setq org-ellipsis "...")
- (setq org-modern-label-border 0.3)
+;; (setq org-modern-label-border 0.3)
  (setq org-modern-table t)
  ;; modern star
  (setq org-modern-star '("◉" "○" "◈" "◇" "*"))
